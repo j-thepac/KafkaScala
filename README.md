@@ -28,3 +28,10 @@ $lsof -n -i :9092 | grep LISTEN
 
 $kill -9 process_id
 
+Note : 
+1) You can add real time message into Kafka and it should be displayed in the consumer
+2) After this make sure u open new terminal and stop Zookeeper and Kafka process sequentially.
+
+bin/kafka-server-stop.sh config/server.properties
+
+bin/zookeeper-server-stop.sh config/zookeeper.properties
