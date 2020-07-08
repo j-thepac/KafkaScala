@@ -1,11 +1,13 @@
 import java.util
-import org.apache.kafka.clients.consumer.KafkaConsumer
-import java.util.Properties
+
+import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
+import java.util.{Properties, UUID}
+
 import scala.collection.JavaConverters._
 
 object Consumer {
   def main(args: Array[String]): Unit = {
-    consumeFromKafka("Deepak Topic")
+    consumeFromKafka("test")
   }
 
   def consumeFromKafka(topic: String) = {
@@ -15,6 +17,9 @@ object Consumer {
     props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     props.put("auto.offset.reset", "latest")
     props.put("group.id", "consumer-group")
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
+    props.put(ConsumerConfig.CLIENT_ID_CONFIG, "your_client_id");
+    props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
     val consumer: KafkaConsumer[String, String] = new KafkaConsumer[String, String](props)
     consumer.subscribe(util.Arrays.asList(topic))
@@ -22,8 +27,9 @@ object Consumer {
     println("polling started !!")
     while (true) {
       val record = consumer.poll(1000).asScala
-      for (data <- record.iterator)
+      for (data <- record.iterator) {
         println(data.value())
+      }
     }
   }
 }

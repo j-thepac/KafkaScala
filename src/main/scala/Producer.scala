@@ -6,7 +6,7 @@ import org.apache.kafka.clients.producer._
 object Producer {
 
   def main(args: Array[String]): Unit = {
-    writeToKafka("Deepak Topic")
+    writeToKafka("test")
   }
   def writeToKafka(topic: String): Unit = {
 

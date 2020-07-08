@@ -28,10 +28,29 @@ $lsof -n -i :9092 | grep LISTEN
 
 $kill -9 process_id
 
+
+
+**Create a Topic manually:**
+
+Create Topic :
+
+$bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+
+Create a producer :
+
+$bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
+
+Create a Consumer :
+
+$bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+
 Note : 
 1) You can add real time message into Kafka and it should be displayed in the consumer
 2) After this make sure u open new terminal and stop Zookeeper and Kafka process sequentially.
 
-bin/kafka-server-stop.sh config/server.properties
 
-bin/zookeeper-server-stop.sh config/zookeeper.properties
+**Stopping Services** 
+
+1) bin/kafka-server-stop.sh config/server.properties
+
+2) bin/zookeeper-server-stop.sh config/zookeeper.properties
