@@ -2,6 +2,7 @@
 import java.util.Properties
 import org.apache.kafka.clients.producer._
 
+//Note : Make sure Zookeeper and Cluster (server) is up and running  . Refer README
 
 object Producer {
 
