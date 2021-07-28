@@ -15,7 +15,7 @@ Ref : https://kafka.apache.org/quickstart
 Socket server failed to bind to 0.0.0.0:9092:Address already inuse
 
 ### solution:
-*$lsof -n -i :9092 | grep LISTEN
+$lsof -n -i :9092 | grep LISTEN
 $kill -9 process_id*
 
 ## **Manual Steps** 
