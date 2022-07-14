@@ -1,4 +1,3 @@
-
 import java.util.Properties
 import org.apache.kafka.clients.producer._
 
@@ -6,9 +5,8 @@ import org.apache.kafka.clients.producer._
 
 object Producer {
 
-  def main(args: Array[String]): Unit = {
-    writeToKafka("test")
-  }
+  def main(args: Array[String]): Unit =
+    writeToKafka("quickstart")
   def writeToKafka(topic: String): Unit = {
 
     val props = new Properties()

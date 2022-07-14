@@ -6,13 +6,12 @@ import java.util.{Properties, UUID}
 import scala.collection.JavaConverters._
 
 object Consumer {
-  def main(args: Array[String]): Unit = {
-    consumeFromKafka("test")
-  }
+  def main(args: Array[String]): Unit =
+    consumeFromKafka("quickstart")
 
   def consumeFromKafka(topic: String) = {
     val props = new Properties()
-    props.put("bootstrap.servers", "localhost:9092")//copy  from kafka  ie., server port = 9092
+    props.put("bootstrap.servers", "localhost:9092") //copy  from kafka  ie., server port = 9092
     props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
     props.put("auto.offset.reset", "latest")
