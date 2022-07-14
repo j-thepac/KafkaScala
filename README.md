@@ -16,7 +16,6 @@ Open New Terminal
     
     docker exec -it <kafka_container_id> bash
     $cd /opt/kafka_<version>/bin
-    $kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic quickstart
     $kafka-console-consumer.sh --topic quickstart --from-beginning --bootstrap-server localhost:9092
 
 Close both the Terminals
