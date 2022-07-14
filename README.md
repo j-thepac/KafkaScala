@@ -2,7 +2,8 @@
 
 ## Steps:
 ### 1. Manual 
-
+    
+    cd root/src/main/scala/
     docker-compose up -d
     docker ps -a
     docker exec -it <kafka_container_id> bash
