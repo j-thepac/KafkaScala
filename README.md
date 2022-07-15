@@ -8,7 +8,7 @@
     docker ps -a
     docker exec -it <kafka_container_id> bash
     $cd /opt/kafka_<version>/bin
-Create Topic
+Create Topic:quickstart
 
     $kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic quickstart
 Run Producer
