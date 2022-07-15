@@ -8,7 +8,11 @@
     docker ps -a
     docker exec -it <kafka_container_id> bash
     $cd /opt/kafka_<version>/bin
+Create Topic
+
     $kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic quickstart
+Run Producer
+
     $kafka-console-producer.sh --topic quickstart --bootstrap-server localhost:9092
 
     >HI
