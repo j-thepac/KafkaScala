@@ -1,7 +1,8 @@
-import java.util.Properties
-import org.apache.kafka.clients.producer._
+package NormalKafka
 
-//Note : Make sure Zookeeper and Cluster (server) is up and running  . Refer README
+import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+
+import java.util.Properties
 
 object Producer {
 
@@ -16,6 +17,7 @@ object Producer {
 
     val producer = new KafkaProducer[String, String](props)
     val record = new ProducerRecord[String, String](topic, "Deepak key", " Deepak value")
+//    producer.flush() // works async
     producer.send(record)
     producer.close()
     println("Sent !!")

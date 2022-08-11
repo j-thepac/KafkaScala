@@ -1,9 +1,10 @@
-import java.util
+package NormalKafka
 
 import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
-import java.util.{Properties, UUID}
 
-import scala.collection.JavaConverters._
+import java.util
+import java.util.{Properties, UUID}
+import scala.collection.JavaConverters.iterableAsScalaIterableConverter
 
 object Consumer {
   def main(args: Array[String]): Unit =
